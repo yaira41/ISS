@@ -13,8 +13,8 @@ export async function getIssCoordinates() {
 
 export async function getIssCountry(): Promise<string> {
   const issLocation = await getIssCoordinates();
-
   const countries = await getCountries();
+  console.log(countries[0].geometry.coordinates[0]);
   for (const country of countries) {
     if (isPointInPolygon(issLocation, country.geometry.coordinates[0])) {
       return country.properties.name;

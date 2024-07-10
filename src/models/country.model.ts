@@ -6,6 +6,6 @@ export interface Country {
   };
   geometry: {
     type: string;
-    coordinates: number[][][];
+    coordinates: Array<[number, number][]>;
   };
 }

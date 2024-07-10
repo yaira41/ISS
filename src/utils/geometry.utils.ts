@@ -2,7 +2,7 @@ import { IssLocation } from "../models/issLocation.models";
 
 export function isPointInPolygon(
   point: IssLocation,
-  polygon: number[][]
+  polygon: [number, number][]
 ): boolean {
   let inside = false;
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
