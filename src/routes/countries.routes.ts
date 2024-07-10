@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllCountries } from "../controllers/countries.controllers";
+import { getAllCountriesNames } from "../controllers/countries.controllers";
 
 const router = express.Router();
 
@@ -12,6 +12,6 @@ const router = express.Router();
  *       200:
  *         description: List of countries
  */
-router.get("/", getAllCountries);
+router.get("/", getAllCountriesNames);
 
 export default router;

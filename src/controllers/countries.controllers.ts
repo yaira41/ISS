@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { getCountries } from "../services/countries.services";
+import { getCountriesNames } from "../services/countries.services";
 import catchAsync from "../utils/catchAsync";
 
-export const getAllCountries = catchAsync(
+export const getAllCountriesNames = catchAsync(
   async (req: Request, res: Response) => {
-    const countries = await getCountries();
+    const countries = await getCountriesNames();
     res.json(countries);
   }
 );
