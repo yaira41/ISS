@@ -4,7 +4,7 @@ import { Country } from "../models/country.model";
 
 export async function getCountriesNames(): Promise<string[]> {
   const data = await fs.readFile(
-    path.join(__dirname, "../../data/countries.geojson"),
+    path.join(process.cwd(), "/data/countries.geojson"),
     "utf-8"
   );
   const countriesData: { features: Country[] } = JSON.parse(data);
@@ -13,7 +13,7 @@ export async function getCountriesNames(): Promise<string[]> {
 
 export async function getCountries(): Promise<Country[]> {
   const data = await fs.readFile(
-    path.join(__dirname, "../../data/countries.geojson"),
+    path.join(process.cwd(), "/data/countries.geojson"),
     "utf-8"
   );
   const countriesData: { features: Country[] } = JSON.parse(data);
