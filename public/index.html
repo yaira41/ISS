@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS Tracker</title>
+</head>
+<body>
+    <h1>ISS Location</h1>
+    <p>Latitude: <span id="latitude"></span></p>
+    <p>Longitude: <span id="longitude"></span></p>
+    <p>Country: <span id="country"></span></p>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:3000');
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            document.getElementById('latitude').textContent = data.location.latitude;
+            document.getElementById('longitude').textContent = data.location.longitude;
+            document.getElementById('country').textContent = data.country;
+        };
+
+        ws.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+
+        ws.onclose = () => {
+            console.log('WebSocket connection closed');
+        };
+    </script>
+</body>
+</html>
