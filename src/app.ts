@@ -3,6 +3,7 @@ import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { countriesRoute, issRoute, utmRoute } from "./routes";
 import swaggerOptions from "./config/swagger";
+import errorHandler from "./middlewares/errorHandler.middlewares";
 
 const app = express();
 
@@ -14,5 +15,5 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 app.use("/api/countries", countriesRoute);
 app.use("/api/ISS", issRoute);
 app.use("/api/UTM", utmRoute);
-
+app.use(errorHandler);
 export default app;
